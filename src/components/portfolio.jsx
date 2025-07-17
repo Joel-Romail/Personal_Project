@@ -199,7 +199,7 @@ const Portfolio = () => {
               About Me
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              I'm a self-taught developer with a passion for building modern web applications and exploring how machine learning—especially computer vision—can enhance user experiences. I work with tools like React, Next.js, TypeScript, and Python to bring ideas to life through clean, interactive interfaces. Along the way, I’ve built personal projects that combine strong frontend development with smart, data-driven features. I'm always learning, experimenting, and looking for opportunities to grow—feel free to check out my work or reach out to connect.
+              I'm a master's student in Information Technology based in Latvia, with a passion for building modern web applications and exploring how machine learning—especially computer vision—can enhance user experiences. I work with tools like React, Next.js, TypeScript, and Python to bring ideas to life through clean, interactive interfaces. Through personal projects, I’ve combined strong frontend development with smart, data-driven features that push creative and technical boundaries. I'm always learning, experimenting, and looking for new opportunities to grow—feel free to explore my work or reach out to connect.
             </p>
           </div>
 
