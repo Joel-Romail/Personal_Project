@@ -76,13 +76,27 @@ const Portfolio = () => {
       github: "https://github.com/Joel-Romail/affirmation-app",
       demo: "https://github.com/Joel-Romail/affirmation-app"
     },
-        {
+    {
       title: "SafePass: A Modern, Secure Password Manager",
       description: "SafePass is a testament to building secure, user-centric applications without compromising on privacy. It's a web-based password vault that runs entirely in your browser, ensuring that sensitive data like passwords never leaves your local machine. One of the standout features is the AI-powered password generator. By leveraging Genkit and the Google Gemini AI model, SafePass can generate incredibly strong and unique passwords tailored to specific security requirements. This project showcases my ability to integrate cutting-edge AI services into a practical, real-world application while prioritizing security and user privacy from the ground up.",
       tech: ["Next.js", "TypeScript", "React", "Tailwind CSS", "ShadCN UI"],
       github: "https://github.com/Joel-Romail/safe-pass",
       demo: "https://github.com/Joel-Romail/safe-pass"
-    }
+    },
+    {
+      title: "Loan Approval Prediction ML Model",
+      description: "Developed a machine learning model to predict credit risk (good vs. bad credit) using the German Credit dataset ( https://archive.ics.uci.edu/ml/datasets/statlog+(german+credit+data), and apply SHAP (SHapley Additive Explanations) to explain the model's decisions at both global and individual levels. The system will simulate a real-world AI-assisted credit approval scenario where model transparency is critical for fairness, accountability, and trustworthiness.",
+      tech: ["Python"],
+      github: "https://github.com/Joel-Romail/LoanPredictionModel",
+      demo: "https://github.com/Joel-Romail/LoanPredictionModel"
+    },
+    {
+      title: "Student Dropout Prediction ML Model",
+      description: "Developed and evaluated explainable machine learning models for predicting student dropout, using real institutional data from my university (LBTU Jelgava, Latvia).",
+      tech: ["Python"],
+      github: "https://github.com/Joel-Romail/Dropout_Prediction_Model",
+      demo: "https://github.com/Joel-Romail/Dropout_Prediction_Model"
+    },
   ];
 
   const testimonials = [];
