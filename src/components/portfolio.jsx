@@ -3,8 +3,26 @@ import { Github, Linkedin, Mail, ExternalLink, Menu, X, Sun, Moon, MapPin, Calen
 
 const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  // Initialize dark mode from local storage, default to false if not found
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const savedMode = localStorage.getItem('theme');
+      return savedMode === 'dark';
+    }
+    return false;
+  });
   const [activeSection, setActiveSection] = useState('hero');
+
+  // Effect to apply/remove 'dark' class on the html element
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [isDarkMode]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -101,12 +119,17 @@ const Portfolio = () => {
 
   const testimonials = [];
 
-  const themeClasses = isDarkMode 
-    ? 'bg-gray-900 text-white' 
+  // The main container no longer needs themeClasses applied directly,
+  // as the 'dark' class on <html> will handle it via Tailwind.
+  // You can still keep it if you have custom non-Tailwind classes that depend on it.
+  // For this fix, the key is the `document.documentElement.classList.add('dark')`.
+  const themeClasses = isDarkMode
+    ? 'bg-gray-900 text-white'
     : 'bg-white text-gray-900';
 
+
   return (
-    <div className={`min-h-screen transition-all duration-300 ${themeClasses}`}>
+    <div className={`min-h-screen transition-all duration-300`}> {/* Removed themeClasses here */}
       {/* Navigation */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isDarkMode ? 'bg-gray-800/90' : 'bg-white/90'} backdrop-blur-sm border-b ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}`}>
         <div className="container mx-auto px-6 py-4">
@@ -114,7 +137,7 @@ const Portfolio = () => {
             <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Portfolio
             </div>
-            
+
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
               {['hero', 'about', 'projects', 'contact'].map((section) => (
@@ -130,6 +153,7 @@ const Portfolio = () => {
               ))}
               <button
                 onClick={() => setIsDarkMode(!isDarkMode)}
+                // Tailwind's dark:hover:bg-gray-700 will automatically apply when 'dark' class is on html
                 className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
               >
                 {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
@@ -176,13 +200,13 @@ const Portfolio = () => {
         <div className="container mx-auto px-6 text-center relative z-10">
           <div className="animate-fade-in-up">
             <div className="mb-8">
-              
+
             </div>
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Joial Danyal
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-gray-600 dark:text-gray-300">
-               Crafting Smart Experiences Through Code and Design
+                Crafting Smart Experiences Through Code and Design
             </p>
             <p className="text-lg mb-12 max-w-2xl mx-auto leading-relaxed text-gray-700 dark:text-gray-300">
               I’m a web developer passionate about creating intuitive interfaces and exploring how AI can enhance digital experiences.
@@ -241,7 +265,7 @@ const Portfolio = () => {
               Featured Projects
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Here are some of my recent projects that showcase my skills and passion for creating 
+              Here are some of my recent projects that showcase my skills and passion for creating
               meaningful digital experiences.
             </p>
           </div>
@@ -302,7 +326,7 @@ const Portfolio = () => {
               Let's Work Together
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              I'm always excited to take on new challenges and collaborate on interesting projects. 
+              I'm always excited to take on new challenges and collaborate on interesting projects.
               Let's discuss how we can bring your ideas to life.
             </p>
           </div>
